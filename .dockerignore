@@ -1,0 +1,24 @@
+# Exclude virtual environment
+.venv/
+env/
+venv/
+
+# Exclude large local audio dataset (mount via -v instead)
+data/
+
+# Exclude git metadata
+.git/
+.gitignore
+
+# Exclude Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Exclude OS and IDE artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

@@ -45,7 +45,7 @@ Meeami_Audio_AI_Submission/
 ├── run_all.py                # Master 1-click end-to-end execution script
 ├── requirements.txt          # Minimal reproducible dependencies
 ├── README.md                 # Project documentation & research report
-├── checkpoints/              # Model weights: best_baseline.pth (1.50 MB), best_resaudionet.pth (10.83 MB)
+├── checkpoints/              # Model weights: best_baseline.pth, best_resaudionet.pth
 ├── reports/                  # confusion_matrix.png & noise_robustness.png
 └── runs/                     # TensorBoard event logs
 ```
@@ -237,5 +237,24 @@ python inference.py --audio "test_sample.wav"
    * `Rock` vs. `Blues` (shared pentatonic scales, acoustic/electric guitar riffs).
    * `Country` vs. `Blues` (shared chord progressions and instrumentation).
 2. **Noise Masking:** Under heavy noise (5 dB and 0 dB), rhythmic genres (`disco`, `hiphop`) degrade faster because percussive drum transients are masked by noise peaks, whereas continuous harmonic genres (`classical`, `metal`) maintain higher structural resilience.
-
 ---
+
+## 11. Docker Deployment
+
+A production-ready `Dockerfile` and `.dockerignore` are provided for containerized deployment without needing local environment configuration.
+
+### Build the Docker Image
+
+```bash
+docker build -t music-genre-classification .
+```
+
+### Run Inference in Container
+
+```bash
+# Run default sample inference
+docker run --rm music-genre-classification
+
+# Run inference on any custom audio file mounted from host
+docker run --rm -v "${PWD}/your_audio.wav:/app/your_audio.wav" music-genre-classification python inference.py --audio your_audio.wav
+```

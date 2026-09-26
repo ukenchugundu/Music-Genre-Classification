@@ -237,6 +237,7 @@ python inference.py --audio "test_sample.wav"
    * `Rock` vs. `Blues` (shared pentatonic scales, acoustic/electric guitar riffs).
    * `Country` vs. `Blues` (shared chord progressions and instrumentation).
 2. **Noise Masking:** Under heavy noise (5 dB and 0 dB), rhythmic genres (`disco`, `hiphop`) degrade faster because percussive drum transients are masked by noise peaks, whereas continuous harmonic genres (`classical`, `metal`) maintain higher structural resilience.
+
 ---
 
 ## 11. Docker Deployment
